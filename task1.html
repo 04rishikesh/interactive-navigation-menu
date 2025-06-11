@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prodigy Infotech - Fullscreen Navigation</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        /* NAVIGATION BAR */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: yellow;
+            padding: 25px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            z-index: 1000;
+            border-radius: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav.scrolled {
+            background-color: gold;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 600;
+            color: red;
+        }
+
+        .nav-container {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-container a {
+            text-decoration: none;
+            color: #000;
+            font-size: 20px;
+            font-weight: 500;
+            position: relative;
+            padding: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-container a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #000;
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        .nav-container a:hover {
+            color: darkblue;
+        }
+
+        .nav-container a:hover::after {
+            width: 100%;
+            background-color: darkblue;
+        }
+
+        nav.scrolled .nav-container a {
+            color: #000;
+        }
+
+        nav.scrolled .nav-container a:hover {
+            color: darkblue;
+        }
+
+        nav.scrolled .nav-container a::after {
+            background-color: darkblue;
+        }
+
+        /* SECTION STYLING */
+        section {
+            padding: 0;
+            margin: 0;
+        }
+
+        section img {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav id="navbar">
+        <div class="logo">Prodigy Infotech</div>
+        <div class="nav-container">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Fullscreen Image Sections -->
+    <section id="home">
+        <img src="https://i.pinimg.com/originals/ba/0e/b8/ba0eb82dbe74fb21925083c2ea7475b4.jpg" alt="Home">
+    </section>
+
+    <section id="about">
+        <img src="https://midriffinfosolution.org/wp-content/uploads/2022/03/web-development.jpg" alt="About">
+    </section>
+
+    <section id="services">
+        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20231205165904/web-development-image.webp"
+            alt="Services">
+    </section>
+
+    <section id="contact">
+        <img src="https://tse4.mm.bing.net/th?id=OIP.BmuDkGDbjDj7foU-3OGtnQHaEA&pid=Api&P=0&h=180" alt="Contact">
+    </section>
+
+    <!-- Scroll Script -->
+    <script>
+        const navbar = document.getElementById("navbar");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+        });
+    </script>
+
+</body>
+
+</html>
